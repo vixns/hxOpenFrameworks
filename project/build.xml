@@ -13,6 +13,7 @@
 	<files id="oF_Files">
 		<file name="api.cpp"/>
 		<file name="api_ofxShader.cpp"/>
+		<file name="api_ofxOsc.cpp"/>
 		
 		<file name="${OF_DIR}/libs/openFrameworks/app/ofAppGlutWindow.cpp" unless="linux" />
 		<file name="${OF_DIR}/libs/openFrameworks/app/ofAppRunner.cpp" unless="linux" />
@@ -31,6 +32,10 @@
 		<file name="${OF_DIR}/libs/openFrameworks/communication/ofSerial.cpp" unless="linux" />
 		<file name="${OF_DIR}/libs/openFrameworks/events/ofEvents.cpp" unless="linux" />
 		<file name="${OF_DIR}/addons/ofxShader/src/ofxShader.cpp" />
+		<file name="${OF_DIR}/addons/ofxOsc/src/ofxOscMessage.cpp" />
+		<file name="${OF_DIR}/addons/ofxOsc/src/ofxOscBundle.cpp" />
+		<file name="${OF_DIR}/addons/ofxOsc/src/ofxOscReceiver.cpp" />
+		<file name="${OF_DIR}/addons/ofxOsc/src/ofxOscSender.cpp" />
 		
 		
 		<compilerflag value = "-I${OF_DIR}/libs/openFrameworks"/>
@@ -54,6 +59,9 @@
 		<compilerflag value = "-I${OF_DIR}/libs/poco/include"/>
 		<compilerflag value = "-I${OF_DIR}/addons"/>
 		<compilerflag value = "-I${OF_DIR}/addons/ofxShader/src"/>
+		<compilerflag value = "-I${OF_DIR}/addons/ofxOsc/src"/>
+		<compilerflag value = "-I${OF_DIR}/addons/ofxOsc/libs/oscpack/include/ip"/>
+		<compilerflag value = "-I${OF_DIR}/addons/ofxOsc/libs/oscpack/include/osc"/>
 		<compilerflag value = "-I/usr/include" if="macos"/>
 		<compilerflag value = "-I/usr/include/GL" if="macos"/>
 		
@@ -102,6 +110,7 @@
 		<lib name="-LIBPATH:${OF_DIR}/libs/glee/lib/${OF_PLATFORM}" if="windows"/>
 		<lib name="-LIBPATH:${OF_DIR}/libs/glu/lib/${OF_PLATFORM}" if="windows"/>
 		<lib name="-LIBPATH:${OF_DIR}/libs/Poco/lib/${OF_PLATFORM}" if="windows"/>
+		<lib name="-LIBPATH:${OF_DIR}/addons/ofxOsc/libs/oscpack/lib/win32" if="windows"/>
 		
 		<lib name = '-NODEFAULTLIB:atlthunk.lib' if="windows"/>
 		<lib name = '-NODEFAULTLIB:libc.lib' if="windows"/>
@@ -147,6 +156,7 @@
 		<lib name = '${OF_DIR}/libs/freetype/lib/${OF_PLATFORM}/freetype.a' if="macos" />
 		<lib name = '${OF_DIR}/libs/fmodex/lib/${OF_PLATFORM}/libfmodex.dylib' if="macos" />
 		<lib name = '${OF_DIR}/libs/FreeImage/lib/${OF_PLATFORM}/freeimage.a' if="macos" />
+		<lib name = '${OF_DIR}/addons/ofxOsc/libs/oscpack/lib/osx/osc.a' if="macos" />
 
 		
 		<lib name="-pthread" if="macos"/>
@@ -176,6 +186,7 @@
 		<lib name = '${OF_DIR}/libs/poco/lib/${OF_PLATFORM}/libPocoUtil.a' if="linux" />
 		<lib name = '${OF_DIR}/libs/poco/lib/${OF_PLATFORM}/libPocoXML.a' if="linux" />
 		<lib name = '${OF_DIR}/libs/rtAudio/lib/${OF_PLATFORM}/libRtAudio.a' if="linux" />
+		<lib name = '${OF_DIR}/addons/ofxOsc/libs/oscpack/lib/linux/liboscpack.a' if="linux" />
 		<!--<lib name="-s" if="linux"/>-->
 		<lib name="-pthread" if="linux"/>
 		<lib name="-lgstvideo-0.10" if="linux"/>
